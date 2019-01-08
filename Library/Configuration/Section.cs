@@ -55,7 +55,18 @@ namespace Recurly.Configuration
             get { return (int)base["pageSize"]; }
             set { base["pageSize"] = value; }
         }
-      
+
+        /// <summary>
+        /// Port for proxy configuration
+        /// </summary>
+        [ConfigurationProperty("port", IsRequired = false, DefaultValue = 0)]
+        public int Port
+        {
+            get { return (int)base["port"]; }
+            set { base["port"] = value; }
+        }
+
+
         #endregion
     }
 }

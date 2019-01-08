@@ -7,9 +7,10 @@
             Settings.Instance.InitializeFromConfig();
         }
 
-        public static void Initialize(string apiKey, string subdomain, string privateKey = "", int pageSize = 200)
+ 
+        public static void Initialize(string apiKey, string subdomain, string privateKey = "", int pageSize = 200, int port = 0)
         {
-            Settings.Instance.Initialize(apiKey, subdomain, privateKey, pageSize);
+            Settings.Instance.Initialize(apiKey, subdomain, privateKey, pageSize, port);
         }
     }
 }

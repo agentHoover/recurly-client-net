@@ -131,12 +131,14 @@ namespace Recurly
             WriteXmlDelegate writeXmlDelegate, ReadXmlDelegate readXmlDelegate, ReadXmlListDelegate readXmlListDelegate, ReadResponseDelegate reseponseDelegate)
         {
             var url = Settings.GetServerUri(urlPath);
+            
 #if (DEBUG)
             Console.WriteLine("Requesting " + method + " " + url);
 #endif
+
             var request = (HttpWebRequest)WebRequest.Create(url);
 
-            if (!request.RequestUri.Host.EndsWith(Settings.ValidDomain)) {
+            if (request.RequestUri.Port == 0 && !request.RequestUri.Host.EndsWith(Settings.ValidDomain)) {
                 throw new RecurlyException("Domain " + request.RequestUri.Host + " is not a valid Recurly domain");
             }
 
